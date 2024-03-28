@@ -1,0 +1,1 @@
+/Users/calebtheil/Development/learn/polygot/proj/rust/target/debug/librust.rlib: /Users/calebtheil/Development/learn/polygot/proj/rust/src/config.rs /Users/calebtheil/Development/learn/polygot/proj/rust/src/lib.rs /Users/calebtheil/Development/learn/polygot/proj/rust/src/opts.rs
