@@ -1,1 +1,0 @@
-/Users/calebtheil/Development/learn/polygot/proj/rust/target/debug/projector: /Users/calebtheil/Development/learn/polygot/proj/rust/src/bin/projector.rs /Users/calebtheil/Development/learn/polygot/proj/rust/src/config.rs /Users/calebtheil/Development/learn/polygot/proj/rust/src/lib.rs /Users/calebtheil/Development/learn/polygot/proj/rust/src/opts.rs
