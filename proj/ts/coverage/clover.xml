@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1711587841971" clover="3.2.0">
-  <project timestamp="1711587841971" name="All files">
+<coverage generated="1711642954959" clover="3.2.0">
+  <project timestamp="1711642954959" name="All files">
     <metrics statements="84" coveredstatements="69" conditionals="31" coveredconditionals="21" methods="13" coveredmethods="12" elements="128" coveredelements="102" complexity="0" loc="84" ncloc="84" packages="1" files="2" classes="2"/>
-    <file name="config.ts" path="/Users/calebtheil/Development/learn/polygot/proj/ts/src/config.ts">
+    <file name="config.ts" path="/Users/calebtheil/development/learn/polygot/proj/ts/src/config.ts">
       <metrics statements="42" coveredstatements="35" conditionals="22" coveredconditionals="15" methods="6" coveredmethods="6"/>
       <line num="2" count="2" type="stmt"/>
       <line num="4" count="2" type="cond" truecount="2" falsecount="0"/>
@@ -47,7 +47,7 @@
       <line num="81" count="2" type="stmt"/>
       <line num="82" count="4" type="stmt"/>
     </file>
-    <file name="projector.ts" path="/Users/calebtheil/Development/learn/polygot/proj/ts/src/projector.ts">
+    <file name="projector.ts" path="/Users/calebtheil/development/learn/polygot/proj/ts/src/projector.ts">
       <metrics statements="42" coveredstatements="34" conditionals="9" coveredconditionals="6" methods="7" coveredmethods="6"/>
       <line num="1" count="1" type="stmt"/>
       <line num="3" count="1" type="stmt"/>
