@@ -2,6 +2,7 @@ package config
 
 import (
 	"encoding/json"
+	"fmt"
 	"os"
 	"path"
 )
@@ -68,6 +69,8 @@ func (p *Projector) GetValueAll() map[string]string {
 
 func (p *Projector) SetValue(key, value string) {
 	pwd := p.Config.Pwd
+
+	fmt.Printf("Appending value %v:%v to %+v\n", key, value, p.Data)
 	if _, ok := p.Data.Projector[pwd]; !ok {
 		p.Data.Projector[p.Config.Pwd] = map[string]string{}
 	}
@@ -80,6 +83,28 @@ func (p *Projector) RemoveValue(key string) {
 	}
 }
 
+func (p *Projector) Save() error {
+	dir := path.Dir(p.Config.Config)
+	if _, err := os.Stat(dir); os.IsNotExist(err) {
+		err := os.MkdirAll(dir, 0o755)
+		if err != nil {
+			return err
+		}
+	}
+	jsonString, err := json.Marshal(p.Data)
+	if err != nil {
+		return err
+	}
+	target := path.Join(dir, "projector.json")
+	fmt.Printf("Saving %+v to %v", p.Data, target)
+	if err := os.WriteFile(target, jsonString, 0o755); err != nil {
+		return err
+	}
+
+	fmt.Println("\nSaved")
+	return nil
+}
+
 func defaultProjector(c *Config) *Projector {
 	return &Projector{
 		Config: c,
@@ -90,15 +115,17 @@ func defaultProjector(c *Config) *Projector {
 }
 
 func NewProjector(c *Config) *Projector {
-	if _, err := os.Stat(c.Config); err != nil {
+	if _, err := os.Stat(c.Config); err == nil {
 		file, err := os.ReadFile(c.Config)
 		if err != nil {
+			fmt.Printf("Error reading config file: %v", err)
 			return defaultProjector(c)
 		}
 
 		var data Data
 		err = json.Unmarshal(file, &data)
 		if err != nil {
+			fmt.Printf("Error unmatshaling data: %v", err)
 			return defaultProjector(c)
 		}
 		return &Projector{
