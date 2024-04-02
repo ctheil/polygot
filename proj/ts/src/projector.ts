@@ -53,18 +53,27 @@ export default class Projector {
   }
 
   set_value(key: string, value: string) {
-    let dir = this.data.projector[this.c.pwd];
-    if (!dir) {
-      this.data.projector[this.c.pwd] = {}
+    let pwd = this.c.pwd;
+    if (!this.data.projector[pwd]) {
+      this.data.projector[pwd] = {}
     }
-    dir[key] = value
+    this.data.projector[pwd][key] = value
   }
+
 
   remove_value(key: string) {
     const dir = this.data.projector[this.c.pwd];
     if (dir) {
       delete dir[key]
     }
+  }
+
+  save() {
+    const p = path.dirname(this.c.config);
+    if (!fs.existsSync(p)) {
+      fs.mkdirSync(p, { recursive: true })
+    }
+    fs.writeFileSync(this.c.config, JSON.stringify(this.data));
   }
 
   static fromConfig(c: Config): Projector {

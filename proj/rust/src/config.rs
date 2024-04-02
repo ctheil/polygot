@@ -104,9 +104,8 @@ fn get_pwd(pwd: Option<PathBuf>) -> Result<PathBuf> {
 mod test {
     use anyhow::Result;
 
-    use crate::{config::Operation, opts::Opts};
-
     use super::Config;
+    use crate::{config::Operation, opts::Opts};
 
     #[test]
     fn test_print_all() -> Result<()> {
